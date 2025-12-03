@@ -29,8 +29,7 @@ def run_installer_silent(installer):
 def main():
     print("=== Auto Silent Game Installer (Inno Setup Flags Only) ===")
     drive = input("Enter the external drive letter (e.g., E): ").strip().upper()
-    # IMPORTANT_1: For the time being this script is places in a folder above the target folder
-    # IMPORTANT_2: Target folder needs to be named: "games"
+    # IMPORTANT_1: Target folder needs to be named: "games"
     games_folder = Path(f"{drive}:\\games")
     if not games_folder.exists():
         print(f"[ERROR] Folder not found: {games_folder}")
