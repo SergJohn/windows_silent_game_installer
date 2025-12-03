@@ -11,7 +11,7 @@ def run_installer_silent(installer):
     try:
         if installer.suffix.lower() == ".msi":
             cmd = f'msiexec /i "{installer}" /qn /norestart'
-        else:  # all .exe files use the same Inno Setup flags
+        else:  # All .exe files use the same Inno Setup flags
             cmd = f'"{installer}" {SILENT_FLAGS}'
 
         print(f"Running: {cmd}")
@@ -29,6 +29,8 @@ def run_installer_silent(installer):
 def main():
     print("=== Auto Silent Game Installer (Inno Setup Flags Only) ===")
     drive = input("Enter the external drive letter (e.g., E): ").strip().upper()
+    # IMPORTANT_1: For the time being this script is places in a folder above the target folder
+    # IMPORTANT_2: Target folder needs to be named: "games"
     games_folder = Path(f"{drive}:\\games")
     if not games_folder.exists():
         print(f"[ERROR] Folder not found: {games_folder}")
